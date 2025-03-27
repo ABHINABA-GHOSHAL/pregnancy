@@ -15,6 +15,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import ProgressMetrics from "@/components/ProgressMetrics";
 import { FileUp, Upload, AlertTriangle, Check, Info } from "lucide-react";
 import MultiFileUploader, { ReportFile } from "@/components/MultiFileUploader";
+import UltrasoundImageUploader from "@/components/UltrasoundImageUploader";
 
 const UploadReportsPage: React.FC = () => {
   const navigate = useNavigate();
@@ -23,7 +24,8 @@ const UploadReportsPage: React.FC = () => {
     patientData, 
     medicalReports, 
     addMedicalReport, 
-    getCategoryReportCount 
+    getCategoryReportCount,
+    setMedicalReports
   } = useApp();
   
   const [activeTab, setActiveTab] = useState("blood");
@@ -410,6 +412,7 @@ const UploadReportsPage: React.FC = () => {
                 </Select>
               </div>
               
+              {/* Upload Ultrasound Report */}
               <MultiFileUploader
                 selectedFiles={selectedFiles}
                 onFilesChange={setSelectedFiles}
@@ -417,6 +420,36 @@ const UploadReportsPage: React.FC = () => {
                 category="ultrasound"
                 usedSlots={getUsedSlots()}
               />
+
+              {/* Upload Ultrasound Scan Images */}
+              <div className="mt-6 mb-4">
+                <h3 className="text-md font-medium mb-2">Upload Ultrasound Scan Images</h3>
+                <p className="text-sm text-gray-500 mb-4">Upload images from your ultrasound scan to keep a visual record of your baby's development.</p>
+                <UltrasoundImageUploader 
+                  onImageUpload={(imageUrl) => {
+                    // Create new ultrasound image entry
+                    const newUltrasoundImage = {
+                      id: `ultrasound_${Date.now()}`,
+                      type: reportType,
+                      date: reportDate,
+                      imageUrl,
+                      notes
+                    };
+                    
+                    // Update reports in context
+                    setMedicalReports([...medicalReports, {
+                      ...newUltrasoundImage,
+                      fileUrl: newUltrasoundImage.imageUrl,
+                      category: "ultrasound" // Add the missing category property
+                    }]);
+                    
+                    toast({
+                      title: "Image uploaded",
+                      description: "Your ultrasound scan image has been saved successfully."
+                    });
+                  }}
+                />
+              </div>
               
               <div className="space-y-3">
                 <Label htmlFor="test-date">Scan Date</Label>

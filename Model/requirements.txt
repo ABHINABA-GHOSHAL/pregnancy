@@ -1,0 +1,6 @@
+torch>=2.0.0
+pytorch-lightning>=2.0.0
+torchvision>=0.15.0
+pillow>=9.0.0
+flask>=2.0.0
+flask-cors>=3.0.0

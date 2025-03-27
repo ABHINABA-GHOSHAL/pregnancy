@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+#venv
+venv
+Model/venv
+# Model/Orientation_RES34.pth
+# Model/PLANE_34.pth
