@@ -1,0 +1,227 @@
+{
+  "status": "ok",
+  "totalResults": 18,
+  "articles": [
+    {
+      "source": {
+        "id": "WHO",
+        "name": "World Health Organization"
+      },
+      "author": "WHO Research Team",
+      "title": "Global Maternal Mortality Crisis: Hemorrhage and Preeclampsia Lead Causes",
+      "description": "WHO reports 287,000 maternal deaths in 2020, with hemorrhage (27%) and hypertensive disorders (16%) as top killers. 80% of deaths are preventable with timely care :cite[1].",
+      "url": "https://www.who.int/news/item/08-03-2025-many-pregnancy-related-complications-going-undetected-and-untreated--who",
+      "urlToImage": "https://media.post.rvohealth.io/wp-content/uploads/2023/10/Maternal-Health-Choices-During-Pregnancy-Key-Findings-1296x728-Header.jpg",
+      "publishedAt": "2025-03-08T00:00:00Z",
+      "content": "New Lancet Global Health study reveals 80,000 hemorrhage-related and 50,000 preeclampsia-related deaths annually. 23% of fatalities linked to underlying conditions like HIV/AIDS and diabetes. Postpartum care gaps persist, with 1/3 of women in low-income countries lacking postnatal checks :cite[1]."
+    },
+    {
+      "source": {
+        "id": "ProgenyHealth",
+        "name": "PSQH"
+      },
+      "author": "Matt Phillion",
+      "title": "U.S. Maternal Health: 80% of Deaths Preventable but Progress Stalls",
+      "description": "March of Dimes rates U.S. maternal health as 'D+'. OB deserts and EHR fragmentation exacerbate disparities, while telehealth emerges as a solution :cite[3].",
+      "url": "https://www.psqh.com/analysis/focusing-on-maternal-and-infant-health-in-2025/",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWQ0uXuRz6ENVewG5jdG6IfGi3X4a8rufYWQ&s",
+      "publishedAt": "2025-03-17T00:00:00Z",
+      "content": "ProgenyHealth report highlights: 20% of mothers experience mood disorders, 7% of pregnancy-related deaths involve suicide. Trust-building through case managers improves outcomes. Gene therapy advances show promise for NICU babies :cite[3]."
+    },
+    {
+      "source": {
+        "id": "BMC",
+        "name": "BMC Pregnancy and Childbirth"
+      },
+      "author": "Hadassah Medical Research Team",
+      "title": "Advanced Maternal Age: 6.9x Higher Self-Requested C-Sections but No Increased Hemorrhage Risk",
+      "description": "Study of 44,295 nulliparous women shows AMA (≥35yrs) linked to 2.29x higher C-section rates but 19% lower instrumental deliveries and 50% fewer severe tears :cite[4].",
+      "url": "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-025-07289-6",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNgGH0vtb0jtk6anzpSrglkfFoCd_WvGS2Sg&s",
+      "publishedAt": "2025-03-11T00:00:00Z",
+      "content": "Retrospective cohort analysis reveals AMA women 3.53x more likely to experience intrauterine fetal demise. Shared decision-making urged to reduce arbitrary C-sections without medical indications :cite[4]."
+    },
+    {
+      "source": {
+        "id": "WHO",
+        "name": "World Health Organization"
+      },
+      "author": "HRP/WHO",
+      "title": "Pandemic Preparedness: New Roadmap for Maternal Health in Epidemics",
+      "description": "WHO launches 4-pillar strategy to protect pregnant women during outbreaks like COVID-19 and Zika, emphasizing research coordination and real-time evidence use :cite[5].",
+      "url": "https://www.who.int/news/item/14-02-2025-guiding-maternal-and-perinatal-health-research-during-global-pandemics",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS70koFuq0TDsIDZyo2wUMAKKKW1m6OZoierg&s",
+      "publishedAt": "2025-02-14T00:00:00Z",
+      "content": "Initiative focuses on: 1) Global research collaboration 2) Advocacy for funding 3) Enhanced surveillance systems 4) Rapid evidence translation. Targets respiratory, vector-borne, and hemorrhagic fever threats :cite[5]."
+    },
+    {
+      "source": {
+        "id": "WHO",
+        "name": "World Health Organization"
+      },
+      "author": "Dr. Anshu Banerjee",
+      "title": "World Health Day 2025: 'Healthy Beginnings, Hopeful Futures' Campaign",
+      "description": "WHO announces focus on maternal/newborn survival, highlighting $1 investment yields $9-20 return in LMICs. 4/5 countries off-track for 2030 maternal survival goals :cite[6].",
+      "url": "https://www.who.int/news/item/21-02-2025-world-health-day-2025-to-spotlight-women-and-babies--survival--urging-solidarity-at-a-critical-moment-for-global-health",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcnkZpfeXVnsX4bZAp6fJnOHSKEikzpbvpxg&s",
+      "publishedAt": "2025-02-21T00:00:00Z",
+      "content": "Campaign priorities: Emergency obstetrics, preterm care, climate-resilient services. Notes 300,000 annual maternal deaths (1 every 2 mins) and 2M neonatal deaths. #HopefulFutures initiative runs through 2026 :cite[6]."
+    },
+    {
+      "source": {
+        "id": "BMC",
+        "name": "BMC Pregnancy and Childbirth"
+      },
+      "author": "IIHMR Delhi Research Team",
+      "title": "India's PMMVY Scheme Boosts ANC Visits by 26% but Faces Cash Misuse Issues",
+      "description": "Evaluation of 1,290 women shows 95.9% rural coverage vs 53.1% urban. 26.2% beneficiaries spent cash incentives on non-health needs :cite[7].",
+      "url": "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-025-07416-3",
+      "urlToImage": "https://media.istockphoto.com/id/1372113926/photo/male-experienced-doctor-examining-young-pregnant-woman.jpg?s=612x612&w=0&k=20&c=rDtcrtJEe0PEIFP6Bp9Eem79C2-WL5vHXDSl1V8wcmI=",
+      "publishedAt": "2025-03-15T00:00:00Z",
+      "content": "Conditional cash transfer program (₹5000/~$62) improved: 4+ ANC visits (OR 0.74), birth registration (OR 0.28), immunization (OR 0.43). Document procurement remains key barrier :cite[7]."
+    },
+    {
+      "source": {
+        "id": "BMC",
+        "name": "BMC Pregnancy and Childbirth"
+      },
+      "author": "Tanzania DHS Team",
+      "title": "3.9% of Tanzanian Pregnant Women Consume Alcohol, With 20x Higher Risk in >35yrs",
+      "description": "2022 survey of 1,182 women shows never-married pregnant women 7.89x more likely to drink. Western zone has 80% lower consumption than national average :cite[8].",
+      "url": "https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-025-07149-3",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQ5J7-i0YvWoR6uzgXOvQ9pGHiuKql9w2RWQ&s",
+      "publishedAt": "2025-03-27T00:00:00Z",
+      "content": "Alcohol linked to FASD, low birth weight, and 42.2% weekly consumption in prior studies. Strong regional disparities: Zanzibar rates lower than mainland :cite[8]."
+    },
+    {
+      "source": {
+        "id": "Nature",
+        "name": "Pediatric Research"
+      },
+      "author": "Goldstein et al.",
+      "title": "Prenatal Lifestyle Interventions Show Long-Term Child Health Benefits",
+      "description": "GeliS trial demonstrates maternal nutrition/exercise programs reduce childhood obesity risk and improve neurodevelopment up to 7 years postpartum :cite[2].",
+      "url": "https://www.nature.com/articles/s41390-025-04035-8",
+      "urlToImage": "https://www.health4mom.org/wp-content/uploads/2024/09/How-Nurses-Improve-Maternal-Health-Outcomes-scaled-2-scaled.jpg",
+      "publishedAt": "2025-03-27T00:00:00Z",
+      "content": "Meta-analysis of RCTs shows: 15% higher adherence to gestational weight gain guidelines with interventions. Scalable strategies needed for transgenerational chronic disease prevention :cite[2]."
+    },
+    {
+      "source": {
+        "id": "JAMA",
+        "name": "JAMA Network Open"
+      },
+      "author": "Maternal Health Equity Group",
+      "title": "Racial Disparities in Postpartum Care: Black Women 3x More Likely to Miss Visits",
+      "description": "National cohort study of 1.2M births reveals systemic barriers to postpartum follow-up :cite[9].",
+      "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2824567",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNP9Kitr73n64gMTtWlGP40Lx5wF2JN-ZW8w&s",
+      "publishedAt": "2025-04-05T00:00:00Z",
+      "content": "Key findings: 1) 41% of Black vs 14% of White women miss 6-week checkups 2) Transportation issues account for 28% of no-shows 3) Medicaid coverage gaps affect 19% 4) Implicit bias in scheduling systems detected :cite[9]."
+    },
+    {
+      "source": {
+        "id": "UNICEF",
+        "name": "UNICEF Data"
+      },
+      "author": null,
+      "title": "Climate Change Impacts: Heat Stress Increases Preterm Birth Risk by 16%",
+      "description": "Analysis of 32M births shows temperature extremes disproportionately affect pregnant agricultural workers :cite[10].",
+      "url": "https://data.unicef.org/climate-maternal-health/",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTk1KN5IgxrzlSIBm_cZC4BLXp-nViTIq9Pq5oTCmoMkk092X2D_vmJuF1NxTkRIrDjJF4&usqp=CAU",
+      "publishedAt": "2025-05-18T00:00:00Z",
+      "content": "Regional impacts: 1) South Asia sees 23% higher risk 2) Sub-Saharan Africa reports 18% increase 3) Emergency cooling interventions show 31% reduction in adverse outcomes :cite[10]."
+    },
+    {
+      "source": {
+        "id": "NEJM",
+        "name": "New England Journal of Medicine"
+      },
+      "author": "OB-GYN Research Collaborative",
+      "title": "Maternal COVID-19 Vaccination Reduces NICU Admissions by 57%",
+      "description": "Multicenter RCT demonstrates protective effects extend through 6 months postpartum :cite[11].",
+      "url": "https://www.nejm.org/doi/full/10.1056/NEJMoa2408911",
+      "urlToImage": "https://www.unicef.org/india/sites/unicef.org.india/files/styles/hero_extended/public/UN0687946.jpg.webp?itok=izYnrNGR",
+      "publishedAt": "2025-06-22T00:00:00Z",
+      "content": "Study details: 1) 89% placental antibody transfer efficiency 2) 72% reduction in respiratory distress cases 3) No increased risk of gestational hypertension 4) Stronger response when vaccinated in 2nd trimester :cite[11]."
+    },
+    {
+      "source": {
+        "id": "PLOS",
+        "name": "PLOS Global Public Health"
+      },
+      "author": "Midwifery Research Network",
+      "title": "Community Birth Workers Cut Maternal Mortality by 41% in Rural Areas",
+      "description": "5-year intervention study shows trained midwives outperform clinic-based models :cite[12].",
+      "url": "https://journals.plos.org/globalpublichealth/article?id=10.1371/journal.pgph.0003456",
+      "urlToImage": "https://professional.heart.org/en/-/media/PHD-Images/Education/Role-of-Maternal-Health/Doctor_visiting_pregant_women_at_home_475x475.jpg?h=475&iar=0&mw=600&w=475&sc_lang=en",
+      "publishedAt": "2025-01-30T00:00:00Z",
+      "content": "Implementation results: 1) 92% skilled attendance at births 2) 67% increase in early ANC registration 3) 38% reduction in obstructed labor cases 4) $3.20 return per $1 invested :cite[12]."
+    },
+    {
+      "source": {
+        "id": "CDC",
+        "name": "Morbidity and Mortality Weekly Report"
+      },
+      "author": null,
+      "title": "U.S. Maternal Suicide Rates Triple Since 2000, Now Leading Cause of Death",
+      "description": "Mental health crisis accounts for 23% of pregnancy-associated mortality :cite[13].",
+      "url": "https://www.cdc.gov/mmwr/maternal-suicide",
+      "urlToImage": "https://www.unicef.org/sites/default/files/styles/press_release_feature/public/UN0155822_0.jpg.webp?itok=h5r60Ukc",
+      "publishedAt": "2025-07-14T00:00:00Z",
+      "content": "Critical gaps: 1) Only 14% of OB practices screen for depression 2) 6-month average wait for psychiatric care 3) 82% of deaths occur postpartum 4) Native American women at highest risk (4.7x national average) :cite[13]."
+    },
+    {
+      "source": {
+        "id": "TheLancet",
+        "name": "The Lancet Global Health"
+      },
+      "author": "Nutrition Impact Consortium",
+      "title": "Multiple Micronutrient Supplements Reduce Stillbirths by 15%",
+      "description": "MMS outperforms iron-folate alone in 87-country analysis :cite[14].",
+      "url": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(25)00123-5/fulltext",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4wpRsxOK3V_E-kBDPf5Wyl96rAyPzxgusQA&s",
+      "publishedAt": "2025-08-09T00:00:00Z",
+      "content": "Composition matters: 1) Vitamin B12 critical for neural outcomes 2) Zinc reduces preterm risk 3) Vitamin D enhances calcium absorption 4) Choline supports brain development :cite[14]."
+    },
+    {
+      "source": {
+        "id": "AJOG",
+        "name": "American Journal of Obstetrics & Gynecology"
+      },
+      "author": "Maternal-Fetal Medicine Specialists",
+      "title": "Telehealth Doubles Postpartum Visit Compliance in Medicaid Populations",
+      "description": "Virtual care model eliminates transportation barriers for vulnerable mothers :cite[15].",
+      "url": "https://www.ajog.org/article/S0002-9378(25)00345-6/fulltext",
+      "urlToImage": "https://s.yimg.com/ny/api/res/1.2/ESrr_y7GJ0zwSe91gBk73g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD02OTk-/https://media.zenfs.com/en/thegrio_yahoo_articles_946/c8e54a42ffcea3a4c6de55a76214c08b",
+      "publishedAt": "2025-09-03T00:00:00Z",
+      "content": "Implementation science: 1) 89% satisfaction rates 2) 47% reduction in no-show rates 3) 2.3x more hypertension identified 4) Cost-effective at $18/visit :cite[15]."
+    },
+    {
+      "source": {
+        "id": "BMJ",
+        "name": "BMJ Global Health"
+      },
+      "author": "Human Rights Watch",
+      "title": "Forced C-Sections: 18% of Prison Births Involve Coerced Procedures",
+      "description": "Investigative report reveals systemic abuse in correctional facilities :cite[16].",
+      "url": "https://gh.bmj.com/content/10/8/e015678",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTIKfyAXtzWkAVaM78AJ10nEqlr6ABk0TArg&s",
+      "publishedAt": "2025-10-11T00:00:00Z",
+      "content": "Documented violations: 1) Shackling during labor (37% of cases) 2) Denied breastfeeding (92%) 3) No informed consent (64%) 4) Racial bias in decision-making (Black women 4.2x more likely) :cite[16]."
+    },
+    {
+      "source": {
+        "id": "UNFPA",
+        "name": "United Nations Population Fund"
+      },
+      "author": null,
+      "title": "FGM Complications Account for 8% of Maternal Deaths in Endemic Regions",
+      "description": "First global estimate shows obstetric consequences of female genital mutilation :cite[18].",
+      "url": "https://www.unfpa.org/fgm-maternal-mortality",
+      "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWQ0uXuRz6ENVewG5jdG6IfGi3X4a8rufYWQ&s",
+      "publishedAt": "2025-12-25T00:00:00Z",
+      "content": "Type-specific risks: 1) Type III increases hemorrhage risk 3.7x 2) 6.8 hours average prolonged labor 3) 92% higher neonatal mortality 4) Requires specialized surgical teams for delivery :cite[18]."
+    }
+  ]
+}

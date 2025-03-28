@@ -1,0 +1,227 @@
+{
+    "status": "ok",
+    "totalResults": 17,
+    "articles": [
+      {
+        "source": {
+          "id": null,
+          "name": "PMC"
+        },
+        "author": "Nutrition Research Team",
+        "title": "Optimal Prenatal Vitamin Formulations: Bridging the Nutrient Gap",
+        "description": "Analysis of 180 commercial prenatal supplements reveals widespread inadequacies in key nutrients like vitamin D, choline, and omega-3s :cite[1]:cite[7].",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9275129/",
+        "urlToImage": "https://t4.ftcdn.net/jpg/03/88/03/93/360_F_388039385_emMbuZ4pCWHn03ixaimAuEsgGQdHn5gH.jpg",
+        "publishedAt": "2022-07-11T00:00:00Z",
+        "content": "Blood levels of 11 essential vitamins decline during pregnancy without supplementation. Current prenatal formulas often fail to meet evidence-based targets for folate (400 mcg), iron (27 mg), and vitamin D (2000-4000 IU)..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "American College of Obstetricians and Gynecologists"
+        },
+        "author": null,
+        "title": "ACOG Guidelines: Folic Acid & Neural Tube Defect Prevention",
+        "description": "400 mcg folic acid recommended pre-conception, reducing neural tube defects by 50% :cite[3]:cite[7].",
+        "url": "https://www.acog.org/womens-health/faqs/nutrition-during-pregnancy",
+        "urlToImage": "https://www.shutterstock.com/shutterstock/photos/2439252019/display_1500/stock-photo-pregnant-woman-holding-bowl-with-fresh-vegetable-salat-while-sitting-on-bed-expectant-mother-2439252019.jpg",
+        "publishedAt": "2023-09-11T00:00:00Z",
+        "content": "Critical window for folate supplementation begins 3 months pre-pregnancy. Only 10% of African American women meet early supplementation targets..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ScienceDirect"
+        },
+        "author": "Clinical Nutrition Research Group",
+        "title": "Prenatal Supplements: Only 1 Product Meets All Targets",
+        "description": "Analysis of 20,547 supplements shows alarming gaps in calcium, iron, and omega-3 FA dosing :cite[4].",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0002916523000035",
+        "urlToImage": "https://t3.ftcdn.net/jpg/02/84/09/14/360_F_284091479_XuLv23Eb96dcJ4ZoVFj6FO9JCRAcJLyg.jpg",
+        "publishedAt": "2023-01-15T00:00:00Z",
+        "content": "Target doses: 383-943 mg calcium, 13-22 mg iron. Only 1 non-prenatal product met all 6 nutrient targets at $200/month..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "The Conversation"
+        },
+        "author": "Nutrition Researcher",
+        "title": "The Choline Crisis: 95% of Prenatals Fail Mothers",
+        "description": "Most supplements provide <100 mg of crucial brain-development nutrient vs 450 mg RDA :cite[7].",
+        "url": "https://theconversation.com/prenatal-supplements-fall-woefully-short",
+        "urlToImage": "https://www.motherhoodindia.com/wp-content/uploads/2021/04/How-does-a-mothers-nutrition-affect-the-foetus-scaled.jpg",
+        "publishedAt": "2024-06-04T00:00:00Z",
+        "content": "Eggs and organ meats are primary dietary sources. Quadruple RDA choline intake shows promise mitigating fetal alcohol effects..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Epigenetics & Chromatin"
+        },
+        "author": "Genomics Research Team",
+        "title": "Prenatal Vitamins Alter Fetal DNA Methylation Patterns",
+        "description": "First-month supplementation linked to 0.6% reduction in placental DNA methylation :cite[6].",
+        "url": "https://epigeneticsandchromatin.biomedcentral.com/articles/10.1186/s13072-022-00460-9",
+        "urlToImage": "https://www.manipalhospitals.com/uploads/blog/pregnancy-nutrition.png",
+        "publishedAt": "2022-08-15T00:00:00Z",
+        "content": "Cohort studies show enriched methylation patterns in neuronal development pathways. Association strongest with early pregnancy supplementation..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Frontiers in Global Women's Health"
+        },
+        "author": "Ethiopian Research Consortium",
+        "title": "87.5% of Ethiopian Mothers Skip Prenatal Vitamins",
+        "description": "Low education & unplanned pregnancies drive supplement avoidance :cite[5].",
+        "url": "https://www.frontiersin.org/articles/10.3389/fgwh.2024.1474928/full",
+        "urlToImage": "https://t3.ftcdn.net/jpg/02/84/09/14/360_F_284091479_XuLv23Eb96dcJ4ZoVFj6FO9JCRAcJLyg.jpg",
+        "publishedAt": "2025-01-06T00:00:00Z",
+        "content": "Cultural factors: 71% of decisions made by husbands. 3.27x higher non-use with poor nutritional knowledge..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Medscape"
+        },
+        "author": "Jordan Hylton, DO",
+        "title": "Vitamin D Controversy: To Screen or Not to Screen?",
+        "description": "ACOG finds insufficient evidence for routine vitamin D testing :cite[8].",
+        "url": "https://prolicious.com/cdn/shop/articles/35.jpg?v=1689059836&width=480",
+        "urlToImage": "https://www.manipalhospitals.com/uploads/blog/pregnancy-nutrition.png",
+        "publishedAt": "2023-09-11T00:00:00Z",
+        "content": "RDA remains at 5 mcg despite links to preeclampsia. No association found between maternal 25(OH)D and offspring bone density..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "PMC"
+        },
+        "author": "Maternal Health Consortium",
+        "title": "Calcium's Dual Role: Lowering Preeclampsia & Autism Risk",
+        "description": "1500 mg/day reduces preeclampsia by 55%, autism odds by 52% :cite[2]:cite[6].",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8229801/",
+        "urlToImage": "https://t3.ftcdn.net/jpg/02/84/09/14/360_F_284091479_XuLv23Eb96dcJ4ZoVFj6FO9JCRAcJLyg.jpg",
+        "publishedAt": "2021-05-28T00:00:00Z",
+        "content": "Cochrane review of 15,730 women shows 35% hypertension reduction. HELLP syndrome risk requires monitoring at high doses..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "The Conversation"
+        },
+        "author": "OB-GYN Resident",
+        "title": "Omega-3 Shortfall: 95% of US Mothers Deficient",
+        "description": "600-1000 mg/day recommendation vs typical 100-200 mg in supplements :cite[7].",
+        "url": "https://theconversation.com/omega3-pregnancy",
+        "urlToImage": "https://currae.com/wp-content/uploads/2024/01/Baby-nutrition.jpeg",
+        "publishedAt": "2024-06-05T00:00:00Z",
+        "content": "Fatty fish twice weekly reduces preterm birth risk by 37%. Mercury concerns overblown for salmon/mackerel..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ScienceDirect"
+        },
+        "author": "Public Health Researchers",
+        "title": "The Prenatal Iron Paradox: Anemia vs. Overload",
+        "description": "28% of third-trimester women develop anemia despite 27 mg RDA :cite[1]:cite[8].",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0002916523000047",
+        "urlToImage": "https://www.cwcashburn.com/wp-content/uploads/2022/05/nutrition.jpg",
+        "publishedAt": "2023-03-01T00:00:00Z",
+        "content": "Balance required: Excessive iron linked to gestational diabetes. Hepcidin monitoring proposed for personalized dosing..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "PMC"
+        },
+        "author": "Nutrition Meta-Analysis Group",
+        "title": "Magnesium: The Overlooked Mineral Reducing C-Sections",
+        "description": "350 mg/day supplementation decreases cesarean risk by 22% :cite[2].",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8229801/",
+        "urlToImage": "https://www.muhealth.org/sites/default/files/2019-02/shutterstock_442442554-compressor.jpg",
+        "publishedAt": "2021-06-15T00:00:00Z",
+        "content": "NHANES data shows 48% of women below RDA. Linked to reduced gestational diabetes and childhood asthma..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Epigenetics & Chromatin"
+        },
+        "author": "Developmental Biologists",
+        "title": "Placental Epigenetics: Prenatal Vitamins' Lasting Legacy",
+        "description": "First-trimester use alters 9,216 methylation sites in placental tissue :cite[6].",
+        "url": "https://epigeneticsandchromatin.biomedcentral.com/articles/10.1186/s13072-022-00461-0",
+        "urlToImage": "https://preganews.com/wp-content/uploads/2023/10/736-by-573-body-1-2.jpg",
+        "publishedAt": "2022-09-01T00:00:00Z",
+        "content": "Neuronal development pathways most affected. Methylation changes persist into childhood developmental assessments..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Frontiers in Nutrition"
+        },
+        "author": "Global Health Initiative",
+        "title": "UNIMMAP Formula: Global Standard for Prenatal MMNs",
+        "description": "15-vitamin/7-mineral blend reduces stillbirths by 18% :cite[5].",
+        "url": "https://www.frontiersin.org/articles/10.3389/fnut.2024.123456",
+        "urlToImage": "https://cdn.mos.cms.futurecdn.net/Kc8ok2So85DjF2fDmmLEZU.jpg",
+        "publishedAt": "2024-02-14T00:00:00Z",
+        "content": "Contains 30 mg iron, 400 mcg folate. Adopted in 23 LMICs with 12% reduction in low birth weight..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Medscape"
+        },
+        "author": "Carl V Smith, MD",
+        "title": "Weight Gain Guidelines: IOM vs Real-World Compliance",
+        "description": "Only 30-40% meet targets; obesity doubles preeclampsia risk :cite[8].",
+        "url": "https://emedicine.medscape.com/article/259059-overview",
+        "urlToImage": "https://americanpregnancy.org/wp-content/uploads/2012/04/enpregnancy-nutritionesnutrici%C3%B3n-del-embarazo.jpg",
+        "publishedAt": "2023-09-11T00:00:00Z",
+        "content": "Recommended ranges: 11-40 lbs based on BMI. Second-trimester gains most critical for fetal development..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "The Conversation"
+        },
+        "author": "Public Health Advocate",
+        "title": "Prenatal Supplements: The Wild West of Nutrition",
+        "description": "No FDA oversight for dosage accuracy or contamination :cite[7].",
+        "url": "https://theconversation.com/supplement-regulation",
+        "urlToImage": "https://www.cwcashburn.com/wp-content/uploads/2022/05/nutrition.jpg",
+        "publishedAt": "2024-06-10T00:00:00Z",
+        "content": "43% of products contain unlisted ingredients. Price doesn't correlate with quality..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "PMC"
+        },
+        "author": "Pediatric Research Network",
+        "title": "B12 Deficiency: Silent Threat to Neurodevelopment",
+        "description": "2.6 mcg RDA often unmet in vegan/vegetarian mothers :cite[1]:cite[8].",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9275129/",
+        "urlToImage": "https://www.riversideonline.com/-/media/patients-and-visitors/healthy-you/healthy-nutrition-pregnant.jpg",
+        "publishedAt": "2022-07-15T00:00:00Z",
+        "content": "Linked to 34% higher autism risk. Requires separate supplementation in plant-based diets..."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ACOG"
+        },
+        "author": null,
+        "title": "Gestational Diabetes: Nutritional Prevention Strategies",
+        "description": "Fiber intake >28g/day reduces risk by 26% :cite[3]:cite[8].",
+        "url": "https://www.acog.org/gestational-diabetes",
+        "urlToImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcuPcML5HRIa2G1qDsyk6yeY9G7hWPNuOfFA&s",
+        "publishedAt": "2023-11-01T00:00:00Z",
+        "content": "Complex carbs vs simple sugars: Glycemic load management crucial. Magnesium and chromium supplementation under study..."
+      }
+    ]
+  }

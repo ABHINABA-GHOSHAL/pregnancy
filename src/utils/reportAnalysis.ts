@@ -4,7 +4,7 @@ import * as pdfjsLib from "pdfjs-dist";
 
 // Configure pdfjs worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = "/pdf.worker.min.js";
-const GEMINI_API_KEY = "AIzaSyCQe0khiVx6n-Z9vHY4ZmqBcVnFk-xvLDE"
+const GEMINI_API_KEY = "AIzaSyDXyNY2IsBjtSLxvGp-7pWnkxVzZhzhb1Q"
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 // Extract text from a PDF file

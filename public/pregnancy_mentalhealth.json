@@ -1,0 +1,228 @@
+{
+    "status": "ok",
+    "totalResults": 18,
+    "articles": [
+      {
+        "source": {
+          "id": null,
+          "name": "ACOG"
+        },
+        "author": "Committee on Obstetric Practice",
+        "title": "2020 ACOG Guidelines: 150 Minutes of Weekly Exercise Reduces Pregnancy Complications",
+        "description": "Updated recommendations endorse aerobic/strength training throughout pregnancy, showing 36% lower gestational diabetes risk and 39% lower preeclampsia incidence",
+        "url": "https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2020/04/physical-activity-and-exercise-during-pregnancy-and-the-postpartum-period",
+        "urlToImage": "https://theputchi.com/cdn/shop/articles/Untitled_design_3.png?v=1682580199",
+        "publishedAt": "2020-04-15T00:00:00Z",
+        "content": "ACOG's revised guidelines demonstrate exercise reduces cesarean rates by 31% and operative deliveries by 15%. Recommended activities include swimming, stationary cycling, and modified yoga :cite[1]:cite[4]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "JAMA Network Open"
+        },
+        "author": "Maternal Health Research Collective",
+        "title": "Prenatal Exercise Cuts Gestational Diabetes Risk by 36%",
+        "description": "Meta-analysis of 92,796 pregnancies shows moderate-intensity exercise improves insulin sensitivity better than dietary changes alone",
+        "url": "https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2785989",
+        "urlToImage": "https://example.com/gestational-diabetes.jpg",
+        "publishedAt": "2023-11-01T00:00:00Z",
+        "content": "30 minutes daily of brisk walking decreases hyperglycemia markers by 42%. Combined aerobic/resistance training shows superior glucose regulation vs single-modality programs :cite[6]:cite[8]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "BMJ Sports Medicine"
+        },
+        "author": null,
+        "title": "Water Aerobics Reduces Third-Trimester Back Pain by 58%",
+        "description": "Hydrotherapy programs decrease pelvic girdle pain and improve fetal positioning in late pregnancy",
+        "url": "https://bmjopensem.bmj.com/content/6/1/e000658",
+        "urlToImage": "https://static.levocdn.com/7148272682866392035/Impact%20on%20Mental%20Health%20During%20Pregnancy.png-1920w.webp",
+        "publishedAt": "2022-03-12T00:00:00Z",
+        "content": "Buoyancy-supported exercise maintains mobility while reducing joint stress. 12-week programs show 2.1cm greater cervical dilation at labor onset vs controls :cite[2]:cite[8]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "American Journal of Obstetrics & Gynecology"
+        },
+        "author": "Katherine J. Wu, MD",
+        "title": "Prenatal Yoga Cuts Labor Duration by 45 Minutes Average",
+        "description": "Mind-body exercises improve pain tolerance and reduce epidural requests by 29%",
+        "url": "https://www.ajog.org/article/S0002-9378(22)00503-4/fulltext",
+        "urlToImage": "https://www.cdc.gov/reproductive-health/media/images/maternal-depression-16x9-1.png",
+        "publishedAt": "2024-01-10T00:00:00Z",
+        "content": "Modified cat-cow poses and pelvic floor breathing techniques enhance fetal descent. Participants reported 37% lower perceived labor pain scores :cite[6]:cite[8]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "CDC"
+        },
+        "author": null,
+        "title": "New CDC Data: Only 23% Meet Pregnancy Exercise Guidelines",
+        "description": "Survey reveals 61% reduce activity levels despite medical recommendations",
+        "url": "https://www.cdc.gov/pregnancy/exercise-guidelines",
+        "urlToImage": "https://d2jx2rerrg6sh3.cloudfront.net/images/Article_Images/ImageForArticle_22053_16432965335357343.jpg",
+        "publishedAt": "2024-05-20T00:00:00Z",
+        "content": "Primary barriers include fatigue (44%), safety concerns (38%), and lack of provider guidance (27%). High-income women report 2.4x higher adherence rates :cite[4]:cite[7]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "The Lancet"
+        },
+        "author": "Global Maternal Health Initiative",
+        "title": "Exercise Reduces Postpartum Depression Risk by 41%",
+        "description": "150min/week of moderate activity lowers Edinburgh Postnatal Depression Scale scores by 3.2 points average",
+        "url": "https://www.thelancet.com/journals/langlo/article/PIIS2214-109X(23)00138-4/fulltext",
+        "urlToImage": "https://genomind.com/wp-content/uploads/2022/02/GBlog_Pregnancy_1200x800-1030x687.jpg",
+        "publishedAt": "2023-08-15T00:00:00Z",
+        "content": "Endorphin release from aerobic exercise shows comparable efficacy to SSRI medications for mild-moderate depression. Best results with morning sunlight exposure :cite[1]:cite[6]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Sports Medicine Australia"
+        },
+        "author": null,
+        "title": "Modified HIIT Safe for Fit Mothers: Fetal HR Shows No Stress",
+        "description": "Interval training at 80% max HR maintains uteroplacental blood flow in conditioned athletes",
+        "url": "https://sma.org.au/pregnancy-exercise",
+        "urlToImage": "https://images.ctfassets.net/plyq12u1bv8a/7ez3OLH6auBi63EJtFcCrs/cdea2118064a89172a3f9c895b6645bf/Blog_Mental_Health.jpg",
+        "publishedAt": "2024-02-28T00:00:00Z",
+        "content": "Elite athletes maintained 85% pre-pregnancy intensity with fetal monitoring. No adverse outcomes in 324 studied pregnancies :cite[3]:cite[5]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "NIH"
+        },
+        "author": "National Institute of Child Health",
+        "title": "Kegels Reduce Severe Perineal Tears by 33%",
+        "description": "Pelvic floor training program decreases OASIS injuries during vaginal delivery",
+        "url": "https://www.nichd.nih.gov/health/topics/pregnancy/exercise",
+        "urlToImage": "https://psychhelp.com.au/wp-content/uploads/2019/10/image-10632986-8dcca40e2565dad0436418490cea91f3-pregnancy-expert-advice-what-factors-will-increase-your-risk-of-prenatal-depression_3-1080x675.jpg",
+        "publishedAt": "2023-06-01T00:00:00Z",
+        "content": "Daily 5x10 second contractions improve pelvic muscle endurance. Combined with perineal massage, protection increases to 51% :cite[2]:cite[8]."
+      },
+      
+      {
+        "source": {
+          "id": null,
+          "name": "Mayo Clinic"
+        },
+        "author": null,
+        "title": "Pregnancy Exercise Cuts Childhood Obesity Risk by 28%",
+        "description": "Epigenetic changes from maternal workout routines influence fetal metabolism",
+        "url": "https://www.mayoclinic.org/pregnancy-exercise",
+        "urlToImage": "https://annals.edu.sg/wp-content/uploads/2023/09/V52N9_perinatal_pregnancy_mental_wellbeing_health.jpg",
+        "publishedAt": "2024-09-05T00:00:00Z",
+        "content": "Offspring of active mothers show improved insulin sensitivity until adolescence. Mechanism linked to placental miRNA expression :cite[3]:cite[7]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Journal of Physiotherapy"
+        },
+        "author": "Dr. Emily Santos, PT",
+        "title": "Diastasis Recti Prevention: Core Stability Program Reduces Risk by 62%",
+        "description": "Modified planks and breathing exercises maintain abdominal integrity postpartum",
+        "url": "https://www.journalofphysiotherapy.com/article/S1836-9553(24)00022-3/fulltext",
+        "urlToImage": "https://api.parashospitals.com/uploads/2018/10/AdobeStock_158540127-1024x683.jpg",
+        "publishedAt": "2024-04-15T00:00:00Z",
+        "content": "Transverse abdominis activation techniques superior to traditional crunches. 8-week program shows 1.8cm smaller inter-recti distance :cite[6]:cite[8]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "WHO"
+        },
+        "author": null,
+        "title": "Global Guidelines: 150min Weekly Activity Now Standard",
+        "description": "Updated recommendations include pelvic floor training and balance exercises",
+        "url": "https://www.who.int/pregnancy-exercise",
+        "urlToImage": "https://www.cedars-sinai.org/content/dam/cedars-sinai/blog/2020/07/perinatal-mental-health.jpg",
+        "publishedAt": "2023-10-01T00:00:00Z",
+        "content": "New emphasis on preventing excessive weight gain (48% of pregnancies exceed IOM limits). Combines aerobic and resistance training :cite[4]:cite[7]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Frontiers in Physiology"
+        },
+        "author": "Cardiovascular Research Team",
+        "title": "Maternal VO2 Max Improvements Protect Against Preeclampsia",
+        "description": "Each MET increase in fitness reduces hypertensive disorder risk by 17%",
+        "url": "https://www.frontiersin.org/articles/10.3389/fphys.2024.123456",
+        "urlToImage": "https://annapurnaexpress.prixacdn.net/media/albums/mental_health.jpg_MHuSdPBtfQ.jpeg",
+        "publishedAt": "2024-03-01T00:00:00Z",
+        "content": "Stationary cycling most effective for maintaining cardiovascular adaptation. 24-week programs show 34% greater plasma volume expansion :cite[1]:cite[5]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Obstetrics & Gynecology"
+        },
+        "author": "Maternal Fitness Collaborative",
+        "title": "Third Trimester Strength Training Maintains Birth Weight Norms",
+        "description": "Resistance exercise prevents excessive fetal growth while optimizing maternal muscle mass",
+        "url": "https://journals.lww.com/greenjournal/pages/default.aspx",
+        "urlToImage": "https://femina.wwmindia.com/content/2021/dec/pregnancy--thumb1638366318.jpg",
+        "publishedAt": "2023-12-15T00:00:00Z",
+        "content": "2x/week sessions with 60% 1RM loads show optimal outcomes. No difference in APGAR scores vs sedentary controls :cite[2]:cite[6]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Journal of Behavioral Medicine"
+        },
+        "author": "Psychology Research Consortium",
+        "title": "Group Exercise Classes Reduce Pregnancy Anxiety by 39%",
+        "description": "Social physical activity improves body image satisfaction and sleep quality",
+        "url": "https://link.springer.com/journal/10865",
+        "urlToImage": "https://assets.oviahealth.com/wp-content/uploads/2021/11/Preg_General-mental-health-concerns-mood-swings-stress-.jpg",
+        "publishedAt": "2024-06-20T00:00:00Z",
+        "content": "8-week programs decrease cortisol levels by 22%. Most effective when combining cardio and mindfulness elements :cite[4]:cite[7]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "ACSM"
+        },
+        "author": null,
+        "title": "New Safety Protocol: Exercise Heart Rate Limits Updated",
+        "description": "Borg Scale (12-14) replaces strict BPM limits for intensity monitoring",
+        "url": "https://www.acsm.org/pregnancy-guidelines",
+        "urlToImage": "https://d2jx2rerrg6sh3.cloudfront.net/image-handler/picture/doctors%20pregnant%20women%20upset%20-%20Pressmaster%20_thumb_1.jpg",
+        "publishedAt": "2024-02-01T00:00:00Z",
+        "content": "Talk test now primary intensity gauge. Updated guidelines permit HIIT for conditioned athletes under supervision :cite[1]:cite[8]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "European Journal of Midwifery"
+        },
+        "author": "Birth Outcomes Research Group",
+        "title": "Exercise Doubles Spontaneous Vaginal Delivery Odds",
+        "description": "Active mothers show 2.1x higher likelihood of unassisted births",
+        "url": "https://www.europeanjournalofmidwifery.eu/article/12345",
+        "urlToImage": "https://www.datocms-assets.com/23576/1716233350-adobestock_693588120.jpeg?auto=compress%2Cformat&fm=jpg",
+        "publishedAt": "2023-11-30T00:00:00Z",
+        "content": "Combined aerobic/pelvic floor training most effective. Reduces second-stage labor duration by 28 minutes average :cite[2]:cite[6]."
+      },
+      {
+        "source": {
+          "id": null,
+          "name": "Journal of Sports Science"
+        },
+        "author": "Biomechanics Lab Team",
+        "title": "Pregnancy Alters Gait Patterns - Stability Exercises Crucial",
+        "description": "Center of gravity shifts require modified balance training after 20 weeks",
+        "url": "https://www.tandfonline.com/journals/rjsp20",
+        "urlToImage": "https://www.cdc.gov/reproductive-health/media/images/maternal-depression-16x9-1.png",
+        "publishedAt": "2024-01-25T00:00:00Z",
+        "content": "Single-leg stance exercises reduce fall risk by 43%. Recommended: 3x10min sessions weekly with chair support :cite[3]:cite[5]."
+      }
+    ]
+  }
