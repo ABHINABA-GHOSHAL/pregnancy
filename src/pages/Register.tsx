@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { format } from "date-fns";
+import format from "date-fns/format";
 import { useApp } from "@/contexts/AppContext";
 import { calculateDueDate, generatePatientId, getMedicalConditionsList } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
@@ -21,7 +21,6 @@ const RegisterPage: React.FC = () => {
     isRegistered,
     setQuestionnaireCompleted,
     setQuestionnaireData,
-    // Assuming setMedicalReports exists in the context; if not, we'll address it below
   } = useApp();
   const [activeTab, setActiveTab] = useState("personal");
   const [formData, setFormData] = useState({
@@ -49,17 +48,14 @@ const RegisterPage: React.FC = () => {
   });
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
-  // Function to clear all previous data
   const clearData = () => {
-    setPatientData({} as any); // Reset patient data
-    // Note: We can't clear medicalReports here because setMedicalReports isn't destructured
-    // We'll address this in the "Additional Fix" section below
-    setQuestionnaireCompleted(false); // Reset questionnaire completion
-    setQuestionnaireData({}); // Clear questionnaire data
-    setIsRegistered(false); // Reset registration status
+    setPatientData({} as any);
+    setQuestionnaireCompleted(false);
+    setQuestionnaireData({});
+    setIsRegistered(false);
   };
 
-  // If already registered, show a message with options to clear data or go to dashboard
+  // Redirect already registered users to Blogs.tsx
   if (isRegistered && !registrationSuccess) {
     return (
       <Layout>
@@ -84,8 +80,8 @@ const RegisterPage: React.FC = () => {
               >
                 Clear Existing Data and Register New
               </Button>
-              <Button onClick={() => navigate("/dashboard")} className="materna-button">
-                Go to Dashboard
+              <Button onClick={() => navigate("/blogs")} className="materna-button">
+                Go to Blogs
               </Button>
             </CardContent>
           </Card>
@@ -109,20 +105,14 @@ const RegisterPage: React.FC = () => {
     let updatedConditions;
 
     if (condition === "None") {
-      // If "None" is selected, clear all other selections
       updatedConditions = formData.preexistingConditions.includes("None") ? [] : ["None"];
     } else {
-      // If any other condition is selected, remove "None" from the list
       updatedConditions = formData.preexistingConditions.filter((c) => c !== "None");
-
-      // Toggle the selected condition
       if (updatedConditions.includes(condition)) {
         updatedConditions = updatedConditions.filter((c) => c !== condition);
       } else {
         updatedConditions.push(condition);
       }
-
-      // If no conditions are selected, add "None"
       if (updatedConditions.length === 0) {
         updatedConditions = ["None"];
       }
@@ -137,7 +127,6 @@ const RegisterPage: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Validate form fields
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.lmp) {
       toast({
         title: "Missing Information",
@@ -147,13 +136,10 @@ const RegisterPage: React.FC = () => {
       return;
     }
 
-    // Clear all previous data before new registration
     clearData();
 
-    // Generate patient ID
     const patientId = generatePatientId(formData.firstName, formData.lastName);
 
-    // Create patient data object
     const patientData = {
       id: patientId,
       firstName: formData.firstName,
@@ -179,7 +165,6 @@ const RegisterPage: React.FC = () => {
       otherCondition: formData.otherCondition,
     };
 
-    // Update app context
     setIsRegistered(true);
     setPatientData(patientData);
     setRegistrationSuccess(true);
@@ -190,8 +175,8 @@ const RegisterPage: React.FC = () => {
     });
   };
 
-  const navigateToDashboard = () => {
-    navigate("/dashboard");
+  const navigateToBlogs = () => {
+    navigate("/blogs");
   };
 
   const nextTab = () => {
@@ -220,6 +205,7 @@ const RegisterPage: React.FC = () => {
 
   const medicalConditions = getMedicalConditionsList();
 
+  // Redirect to Blogs.tsx after successful registration
   if (registrationSuccess) {
     return (
       <Layout>
@@ -234,10 +220,10 @@ const RegisterPage: React.FC = () => {
             </CardHeader>
             <CardContent className="flex flex-col items-center space-y-4">
               <p className="text-center text-muted-foreground">
-                You can now upload your medical reports and complete the health questionnaire.
+                Explore our blogs to learn more about maternal care during pregnancy.
               </p>
-              <Button onClick={navigateToDashboard} className="materna-button">
-                Continue to Dashboard
+              <Button onClick={navigateToBlogs} className="materna-button">
+                Continue to Blogs
               </Button>
             </CardContent>
           </Card>
@@ -268,7 +254,6 @@ const RegisterPage: React.FC = () => {
               <TabsTrigger value="pregnancy">Pregnancy Information</TabsTrigger>
             </TabsList>
 
-            {/* Personal Information Tab */}
             <TabsContent value="personal">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -381,7 +366,6 @@ const RegisterPage: React.FC = () => {
               </div>
             </TabsContent>
 
-            {/* Health Metrics Tab */}
             <TabsContent value="health">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -534,7 +518,6 @@ const RegisterPage: React.FC = () => {
               </div>
             </TabsContent>
 
-            {/* Pregnancy Information Tab */}
             <TabsContent value="pregnancy">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
