@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { format } from "date-fns";
-import { useApp } from "@/contexts/AppContext";
 import { calculateDueDate, generatePatientId, getMedicalConditionsList } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
 import Layout from "@/components/Layout";
@@ -12,13 +11,14 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
+import axios from "axios";
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
-  const { setIsRegistered, setPatientData, patientData } = useApp();
   const [activeTab, setActiveTab] = useState("personal");
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [successType, setSuccessType] = useState<"new" | "update" | null>(null);
+  const [patientData, setPatientData] = useState<any>({});
 
   // Define initial form data with default values
   const initialFormData = {
@@ -85,7 +85,7 @@ const RegisterPage: React.FC = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.lmp) {
       toast({
@@ -96,36 +96,51 @@ const RegisterPage: React.FC = () => {
       return;
     }
 
-    const wasNewRegistration = !patientData.id;
-
-    if (patientData.id) {
-      // Update existing patient data
-      setPatientData({
-        ...formData,
-        id: patientData.id, // Retain the existing ID
-      });
-      setSuccessType("update");
+    const token = localStorage.getItem("token");
+    if (!token) {
       toast({
-        title: "Profile Updated",
-        description: "Your registration details have been updated.",
+        title: "Authentication Error",
+        description: "Please log in to continue.",
+        variant: "destructive",
       });
-    } else {
-      // New registration
-      const patientId = generatePatientId(formData.firstName, formData.lastName);
-      const newPatientData = {
-        id: patientId,
-        ...formData,
-      };
-      setPatientData(newPatientData);
-      setIsRegistered(true);
-      setSuccessType("new");
-      toast({
-        title: "Registration Successful",
-        description: `Your patient ID is: ${patientId}`,
-      });
+      navigate("/");
+      return;
     }
 
-    setRegistrationSuccess(true);
+    const wasNewRegistration = !patientData.id;
+    const patientId = patientData.id || generatePatientId(formData.firstName, formData.lastName);
+    const newPatientData = {
+      id: patientId,
+      ...formData,
+    };
+
+    try {
+      // Send patient data to the backend
+      const response = await axios.post(
+        "http://localhost:5000/register-patient",
+        newPatientData,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      setPatientData(newPatientData);
+      setSuccessType(wasNewRegistration ? "new" : "update");
+      setRegistrationSuccess(true);
+
+      toast({
+        title: wasNewRegistration ? "Registration Successful" : "Profile Updated",
+        description: wasNewRegistration
+          ? `Your patient ID is: ${patientId}`
+          : "Your registration details have been updated.",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Error",
+        description: error.response?.data.message || "Failed to save patient data",
+        variant: "destructive",
+      });
+    }
   };
 
   const navigateToDashboard = () => {
