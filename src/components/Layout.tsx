@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navigation from "./Navigation";
 import { cn } from "@/lib/utils";
@@ -15,14 +14,14 @@ const Layout: React.FC<LayoutProps> = ({
   className
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       {showNavigation && (
-        <Navigation className="w-64 min-w-64 h-screen overflow-y-auto fixed left-0 top-0" />
+        <Navigation className="w-full h-16 fixed top-0 left-0 z-10" />
       )}
       <main 
         className={cn(
           "flex-1 transition-all",
-          showNavigation ? "ml-64" : "ml-0",
+          showNavigation ? "mt-16" : "mt-0",
           className
         )}
       >

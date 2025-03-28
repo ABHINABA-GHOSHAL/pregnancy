@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { format } from "date-fns";
+import format from "date-fns/format";
 import { useApp } from "@/contexts/AppContext";
 import { calculateDueDate, generatePatientId, getMedicalConditionsList } from "@/lib/utils";
 import { toast } from "@/hooks/use-toast";
@@ -15,7 +15,13 @@ import { Checkbox } from "@/components/ui/checkbox";
 
 const RegisterPage: React.FC = () => {
   const navigate = useNavigate();
-  const { setIsRegistered, setPatientData, patientData } = useApp();
+  const {
+    setIsRegistered,
+    setPatientData,
+    isRegistered,
+    setQuestionnaireCompleted,
+    setQuestionnaireData,
+  } = useApp();
   const [activeTab, setActiveTab] = useState("personal");
   const [registrationSuccess, setRegistrationSuccess] = useState(false);
   const [successType, setSuccessType] = useState<"new" | "update" | null>(null);
@@ -43,16 +49,50 @@ const RegisterPage: React.FC = () => {
     para: 0,
     preexistingConditions: ["None"],
     otherCondition: "",
+  });
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
+
+  const clearData = () => {
+    setPatientData({} as any);
+    setQuestionnaireCompleted(false);
+    setQuestionnaireData({});
+    setIsRegistered(false);
   };
 
-  // Initialize form data with existing patient data if available
-  const [formData, setFormData] = useState({
-    ...initialFormData,
-    ...patientData,
-  });
-
-  // Determine if this is an edit operation based on existing patient ID
-  const isEditing = !!patientData.id;
+  // Redirect already registered users to Blogs.tsx
+  if (isRegistered && !registrationSuccess) {
+    return (
+      <Layout>
+        <div className="container mx-auto py-10 px-4 md:px-6 max-w-3xl animate-fade-in">
+          <Card className="glass-panel">
+            <CardHeader>
+              <CardTitle className="text-center">Already Registered</CardTitle>
+              <CardDescription className="text-center">
+                You are already registered with Materna. To start a new registration, you must clear your existing data.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-col items-center space-y-4">
+              <Button
+                onClick={() => {
+                  clearData();
+                  toast({
+                    title: "Data Cleared",
+                    description: "You can now register a new patient. All previous data has been removed.",
+                  });
+                }}
+                variant="destructive"
+              >
+                Clear Existing Data and Register New
+              </Button>
+              <Button onClick={() => navigate("/blogs")} className="materna-button">
+                Go to Blogs
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+      </Layout>
+    );
+  }
 
   const handleLMPChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const lmpDate = new Date(e.target.value);
@@ -87,6 +127,7 @@ const RegisterPage: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!formData.firstName || !formData.lastName || !formData.email || !formData.lmp) {
       toast({
         title: "Missing Information",
@@ -96,40 +137,47 @@ const RegisterPage: React.FC = () => {
       return;
     }
 
-    const wasNewRegistration = !patientData.id;
+    clearData();
 
-    if (patientData.id) {
-      // Update existing patient data
-      setPatientData({
-        ...formData,
-        id: patientData.id, // Retain the existing ID
-      });
-      setSuccessType("update");
-      toast({
-        title: "Profile Updated",
-        description: "Your registration details have been updated.",
-      });
-    } else {
-      // New registration
-      const patientId = generatePatientId(formData.firstName, formData.lastName);
-      const newPatientData = {
-        id: patientId,
-        ...formData,
-      };
-      setPatientData(newPatientData);
-      setIsRegistered(true);
-      setSuccessType("new");
-      toast({
-        title: "Registration Successful",
-        description: `Your patient ID is: ${patientId}`,
-      });
-    }
+    const patientId = generatePatientId(formData.firstName, formData.lastName);
 
+    const patientData = {
+      id: patientId,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      email: formData.email,
+      phoneNumber: formData.phoneNumber,
+      dob: formData.dob,
+      gender: formData.gender,
+      address: formData.address,
+      emergencyContact: formData.emergencyContact,
+      emergencyPhone: formData.emergencyPhone,
+      height: formData.height,
+      preWeight: formData.preWeight,
+      currentWeight: formData.currentWeight,
+      bloodGroup: formData.bloodGroup,
+      lmp: formData.lmp,
+      dueDate: formData.dueDate,
+      primaryProvider: formData.primaryProvider,
+      preferredHospital: formData.preferredHospital,
+      gravida: formData.gravida,
+      para: formData.para,
+      preexistingConditions: formData.preexistingConditions,
+      otherCondition: formData.otherCondition,
+    };
+
+    setIsRegistered(true);
+    setPatientData(patientData);
     setRegistrationSuccess(true);
+
+    toast({
+      title: "Registration Successful",
+      description: `Your patient ID is: ${patientId}`,
+    });
   };
 
-  const navigateToDashboard = () => {
-    navigate("/dashboard");
+  const navigateToBlogs = () => {
+    navigate("/blogs");
   };
 
   const nextTab = () => {
@@ -158,7 +206,7 @@ const RegisterPage: React.FC = () => {
 
   const medicalConditions = getMedicalConditionsList();
 
-  // Display success message after submission
+  // Redirect to Blogs.tsx after successful registration
   if (registrationSuccess) {
     return (
       <Layout>
@@ -176,12 +224,10 @@ const RegisterPage: React.FC = () => {
             </CardHeader>
             <CardContent className="flex flex-col items-center space-y-4">
               <p className="text-center text-muted-foreground">
-                {successType === "new"
-                  ? "You can now upload your medical reports and complete the health questionnaire."
-                  : "Your registration details have been updated."}
+                Explore our blogs to learn more about maternal care during pregnancy.
               </p>
-              <Button onClick={navigateToDashboard} className="materna-button">
-                Continue to Dashboard
+              <Button onClick={navigateToBlogs} className="materna-button">
+                Continue to Blogs
               </Button>
             </CardContent>
           </Card>
@@ -214,7 +260,6 @@ const RegisterPage: React.FC = () => {
               <TabsTrigger value="pregnancy">Pregnancy Information</TabsTrigger>
             </TabsList>
 
-            {/* Personal Information Tab */}
             <TabsContent value="personal">
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -320,7 +365,6 @@ const RegisterPage: React.FC = () => {
               </div>
             </TabsContent>
 
-            {/* Health Metrics Tab */}
             <TabsContent value="health">
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -469,7 +513,6 @@ const RegisterPage: React.FC = () => {
               </div>
             </TabsContent>
 
-            {/* Pregnancy Information Tab */}
             <TabsContent value="pregnancy">
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
