@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "@/contexts/AppContext";
@@ -22,9 +21,9 @@ const ViewReportsPage: React.FC = () => {
   }, [isRegistered, navigate]);
 
   // Filter reports based on active tab
-  const filteredReports = activeTab === "all" 
-    ? medicalReports 
-    : medicalReports.filter(report => report.category === activeTab);
+  const filteredReports = activeTab === "all"
+    ? medicalReports
+    : medicalReports.filter((report) => report.category === activeTab);
 
   // Group reports by type
   const reportsByType = filteredReports.reduce((acc, report) => {
@@ -36,26 +35,65 @@ const ViewReportsPage: React.FC = () => {
     return acc;
   }, {} as Record<string, typeof medicalReports>);
 
+  // Function to generate and download JSON summary
+  const downloadJsonSummary = () => {
+    const allTestResults = medicalReports.flatMap((report) =>
+      report.analysisResults?.all_results || []
+    );
+    const summary = {
+      patientId: patientData.id,
+      patientName: `${patientData.firstName} ${patientData.lastName}`,
+      allTestResults: allTestResults.map((result) => ({
+        test_name: result.test_name,
+        result_value: result.result_value,
+        result_unit: result.result_unit,
+        reference_range: result.referenceRange, // Ensure 'referenceRange' exists in the TestResult type
+        risk_level: result.risk_level,
+        direction: result.direction,
+        date: medicalReports.find((r) =>
+          r.analysisResults?.all_results.includes(result)
+        )?.date,
+      })),
+      generatedAt: new Date().toISOString(),
+    };
+
+    const jsonString = JSON.stringify(summary, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `patient_${patientData.id}_summary.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <Layout>
       <div className="container mx-auto p-6 animate-fade-in">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">View Medical Reports</h1>
-          <Link to="/upload-reports">
-            <Button className="materna-button">
-              <Upload className="mr-2 h-4 w-4" />
-              Upload New Report
+          <div className="flex gap-4">
+            <Button onClick={downloadJsonSummary} className="materna-button">
+              Download JSON Summary
             </Button>
-          </Link>
+            <Link to="/upload-reports">
+              <Button className="materna-button">
+                <Upload className="mr-2 h-4 w-4" />
+                Upload New Report
+              </Button>
+            </Link>
+          </div>
         </div>
-        
+
         <Card className="mb-8">
           <CardHeader className="bg-blue-50 rounded-t-lg">
-            <CardTitle>Patient: {patientData.firstName} {patientData.lastName}</CardTitle>
+            <CardTitle>
+              Patient: {patientData.firstName} {patientData.lastName}
+            </CardTitle>
             <CardDescription>ID: {patientData.id}</CardDescription>
           </CardHeader>
         </Card>
-        
+
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full mb-8">
           <TabsList className="grid grid-cols-6">
             <TabsTrigger value="all">All Reports</TabsTrigger>
@@ -66,14 +104,16 @@ const ViewReportsPage: React.FC = () => {
             <TabsTrigger value="other">Other</TabsTrigger>
           </TabsList>
         </Tabs>
-        
+
         {filteredReports.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 gap-4">
             <div className="text-gray-400 bg-gray-100 p-6 rounded-full">
               <FileText size={40} />
             </div>
             <h2 className="text-xl font-semibold">No reports have been uploaded yet.</h2>
-            <p className="text-gray-500 mb-4">Go to the 'Upload Reports' section to add your medical reports.</p>
+            <p className="text-gray-500 mb-4">
+              Go to the 'Upload Reports' section to add your medical reports.
+            </p>
             <Link to="/upload-reports">
               <Button className="materna-button">
                 <Upload className="mr-2 h-4 w-4" />
@@ -85,7 +125,9 @@ const ViewReportsPage: React.FC = () => {
           <div className="space-y-8">
             {Object.entries(reportsByType).map(([type, reports]) => (
               <div key={type} className="bg-white rounded-lg shadow-md p-6">
-                <h2 className="text-lg font-semibold mb-4 capitalize">{type.replace('-', ' ')} Reports</h2>
+                <h2 className="text-lg font-semibold mb-4 capitalize">
+                  {type.replace("-", " ")} Reports
+                </h2>
                 <div className="grid gap-4">
                   {reports.map((report) => (
                     <ReportCard key={report.id} report={report} />
@@ -144,7 +186,7 @@ const DirectionIndicator: React.FC<{ direction: string }> = ({ direction }) => {
 // Report card component
 const ReportCard: React.FC<{ report: any }> = ({ report }) => {
   const analysis = report.analysisResults;
-  
+
   return (
     <Card className="hover:shadow-lg transition-shadow overflow-hidden">
       <CardHeader className="pb-2">
@@ -161,12 +203,12 @@ const ReportCard: React.FC<{ report: any }> = ({ report }) => {
           </Button>
         </div>
       </CardHeader>
-      
+
       <CardContent>
         {report.notes && (
           <CardDescription className="mb-2">{report.notes}</CardDescription>
         )}
-        
+
         {analysis && analysis.status === "success" && (
           <div className="mt-3">
             <div className="flex flex-wrap gap-2 mb-3">
@@ -189,22 +231,29 @@ const ReportCard: React.FC<{ report: any }> = ({ report }) => {
                 </Badge>
               )}
             </div>
-            
-            {/* Show risk factors if any */}
-            {analysis.risk_factors && analysis.risk_factors.length > 0 && (
+
+            {/* Show all test results */}
+            {analysis.all_results && analysis.all_results.length > 0 && (
               <div className="mt-4">
-                <h4 className="text-sm font-medium mb-2">Flagged Results:</h4>
+                <h4 className="text-sm font-medium mb-2">Test Results:</h4>
                 <div className="space-y-2">
-                  {analysis.risk_factors.map((risk: any, index: number) => (
-                    <div key={index} className="p-2 rounded bg-gray-50 text-sm flex items-center justify-between">
+                  {analysis.all_results.map((result: any, index: number) => (
+                    <div
+                      key={index}
+                      className="p-2 rounded bg-gray-50 text-sm flex items-center justify-between"
+                    >
                       <div className="flex items-center gap-1">
-                        <DirectionIndicator direction={risk.direction} />
-                        <span className="font-medium">{risk.test_name}:</span> 
-                        <span>{risk.result_value} {risk.result_unit}</span>
+                        <DirectionIndicator direction={result.direction} />
+                        <span className="font-medium">{result.test_name}:</span>
+                        <span>
+                          {result.result_value} {result.result_unit}
+                        </span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-500">Ref: {risk.reference_range}</span>
-                        <RiskBadge riskLevel={risk.risk_level} />
+                        <span className="text-xs text-gray-500">
+                          Ref: {result.reference_range}
+                        </span>
+                        <RiskBadge riskLevel={result.risk_level} />
                       </div>
                     </div>
                   ))}
@@ -214,10 +263,12 @@ const ReportCard: React.FC<{ report: any }> = ({ report }) => {
           </div>
         )}
       </CardContent>
-      
+
       {!report.analysisResults && (
         <CardFooter className="bg-gray-50 py-2">
-          <span className="text-xs text-gray-500 italic">No analysis data available for this report</span>
+          <span className="text-xs text-gray-500 italic">
+            No analysis data available for this report
+          </span>
         </CardFooter>
       )}
     </Card>

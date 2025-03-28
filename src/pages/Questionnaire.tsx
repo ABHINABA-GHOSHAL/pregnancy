@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "@/contexts/AppContext";
@@ -22,9 +21,7 @@ const QuestionSection: React.FC<QuestionSectionProps> = ({ title, children }) =>
   return (
     <div className="mb-8 bg-white rounded-lg shadow-md p-6 animate-fade-in">
       <h2 className="text-xl font-semibold mb-4">{title}</h2>
-      <div className="space-y-6">
-        {children}
-      </div>
+      <div className="space-y-6">{children}</div>
     </div>
   );
 };
@@ -33,52 +30,59 @@ const QuestionnaireForm: React.FC = () => {
   const navigate = useNavigate();
   const { isRegistered, patientData, setQuestionnaireCompleted, setQuestionnaireData } = useApp();
   const [formData, setFormData] = useState({
+    // Vital Signs
+    bloodPressure: "",
+    bodyTemperature: "",
+    pulseRate: "",
+
     // Obstetric History
     isFirstPregnancy: "Yes",
     previousPregnancyDetails: "",
-    
+
     // Medical History
     allergies: "",
     currentMedications: "",
-    
+    pcosPcod: "No", // New field for PCOS/PCOD question
+    pcosPcodDetails: "", // New field for PCOS/PCOD details if "Yes"
+
     // Family Medical History
     geneticDisorders: "No",
     geneticDisordersDetails: "",
     familyPregnancyComplications: "No",
     familyPregnancyComplicationsDetails: "",
-    
+
     // Lifestyle and Habits
     smokingStatus: "Never smoked",
     alcoholConsumption: "None",
     drugUse: ["None"],
     dietHabits: "",
     exerciseFrequency: "Occasionally (1-2 times/week)",
-    
+
     // Current Pregnancy Symptoms
     currentSymptoms: ["None"],
     concerningSymptoms: ["None"],
     symptomDetails: "",
-    
+
     // Mental Health
     emotionalWellbeing: "Mostly positive",
     mentalHealthHistory: "No",
     mentalHealthDetails: "",
     safetyConcerns: "No",
     safetyConcernsDetails: "",
-    
+
     // Nutrition and Supplementation
     prenatalVitamins: "Yes, regularly",
     dietaryRestrictions: "No",
     dietaryRestrictionsDetails: "",
     foodAversions: "",
-    
+
     // Exercise and Physical Activity
     physicalActivityTypes: ["Walking"],
     otherPhysicalActivity: "",
     activityFrequency: "3-5 times per week",
-    
+
     // Additional comments
-    additionalComments: ""
+    additionalComments: "",
   });
 
   useEffect(() => {
@@ -89,49 +93,49 @@ const QuestionnaireForm: React.FC = () => {
 
   const handleCheckboxGroupChange = (field: string, value: string) => {
     let updatedValues;
-    
+
     if (formData[field as keyof typeof formData] && Array.isArray(formData[field as keyof typeof formData])) {
       const currentValues = formData[field as keyof typeof formData] as string[];
-      
+
       if (value === "None") {
         // If "None" is selected, clear all other selections
         updatedValues = currentValues.includes("None") ? [] : ["None"];
       } else {
         // If any other value is selected, remove "None" from the list
-        updatedValues = currentValues.filter(v => v !== "None");
-        
+        updatedValues = currentValues.filter((v) => v !== "None");
+
         // Toggle the selected value
         if (updatedValues.includes(value)) {
-          updatedValues = updatedValues.filter(v => v !== value);
+          updatedValues = updatedValues.filter((v) => v !== value);
         } else {
           updatedValues.push(value);
         }
-        
+
         // If no values are selected, add "None"
         if (updatedValues.length === 0) {
           updatedValues = ["None"];
         }
       }
-      
+
       setFormData({
         ...formData,
-        [field]: updatedValues
+        [field]: updatedValues,
       });
     }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     // Save data to context
     setQuestionnaireData(formData);
     setQuestionnaireCompleted(true);
-    
+
     toast({
       title: "Questionnaire Saved",
-      description: "Your health questionnaire has been successfully saved."
+      description: "Your health questionnaire has been successfully saved.",
     });
-    
+
     // Navigate to dashboard
     navigate("/dashboard");
   };
@@ -140,14 +144,54 @@ const QuestionnaireForm: React.FC = () => {
     <Layout>
       <div className="container mx-auto p-6 pb-16">
         <h1 className="text-2xl font-bold mb-6">Pregnancy Health Questionnaire</h1>
-        
+
         <Card className="mb-8">
           <CardHeader className="bg-blue-50 rounded-t-lg">
-            <CardTitle>Patient: {patientData.firstName} {patientData.lastName}</CardTitle>
+            <CardTitle>
+              Patient: {patientData.firstName} {patientData.lastName}
+            </CardTitle>
           </CardHeader>
         </Card>
-        
+
         <form onSubmit={handleSubmit}>
+          {/* Vital Signs Section */}
+          <QuestionSection title="Vital Signs">
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="blood-pressure">Blood Pressure (mmHg, e.g., 120/80)</Label>
+                <Input
+                  id="blood-pressure"
+                  type="text"
+                  placeholder="e.g., 120/80"
+                  value={formData.bloodPressure}
+                  onChange={(e) => setFormData({ ...formData, bloodPressure: e.target.value })}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="body-temperature">Body Temperature (°F, e.g., 98.6)</Label>
+                <Input
+                  id="body-temperature"
+                  type="text"
+                  placeholder="e.g., 98.6"
+                  value={formData.bodyTemperature}
+                  onChange={(e) => setFormData({ ...formData, bodyTemperature: e.target.value })}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="pulse-rate">Pulse Rate (beats per minute, e.g., 72)</Label>
+                <Input
+                  id="pulse-rate"
+                  type="text"
+                  placeholder="e.g., 72"
+                  value={formData.pulseRate}
+                  onChange={(e) => setFormData({ ...formData, pulseRate: e.target.value })}
+                />
+              </div>
+            </div>
+          </QuestionSection>
+
           {/* Obstetric History */}
           <QuestionSection title="1. Obstetric History">
             <div className="space-y-4">
@@ -168,7 +212,7 @@ const QuestionnaireForm: React.FC = () => {
                   </div>
                 </RadioGroup>
               </div>
-              
+
               {formData.isFirstPregnancy === "No" && (
                 <div className="space-y-2">
                   <Label htmlFor="previous-pregnancy-details">
@@ -181,7 +225,7 @@ const QuestionnaireForm: React.FC = () => {
                   />
                 </div>
               )}
-              
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <Label className="text-base">Last Menstrual Period (LMP)</Label>
@@ -194,46 +238,83 @@ const QuestionnaireForm: React.FC = () => {
               </div>
             </div>
           </QuestionSection>
-          
+
           {/* Medical History */}
           <QuestionSection title="2. Medical History">
-            <div>
-              <Label className="text-base">Pre-existing medical conditions recorded during registration:</Label>
-              <div className="mt-2 ml-2">
-                {patientData.preexistingConditions && patientData.preexistingConditions.length > 0 ? (
-                  <ul className="list-disc list-inside space-y-1">
-                    {patientData.preexistingConditions.map((condition) => (
-                      <li key={condition}>{condition}</li>
-                    ))}
-                    {patientData.preexistingConditions.includes("Other") && patientData.otherCondition && (
-                      <li>Other: {patientData.otherCondition}</li>
-                    )}
-                  </ul>
-                ) : (
-                  <p>- None recorded</p>
-                )}
+            <div className="space-y-4">
+              <div>
+                <Label className="text-base">Pre-existing medical conditions recorded during registration:</Label>
+                <div className="mt-2 ml-2">
+                  {patientData.preexistingConditions && patientData.preexistingConditions.length > 0 ? (
+                    <ul className="list-disc list-inside space-y-1">
+                      {patientData.preexistingConditions.map((condition) => (
+                        <li key={condition}>{condition}</li>
+                      ))}
+                      {patientData.preexistingConditions.includes("Other") && patientData.otherCondition && (
+                        <li>Other: {patientData.otherCondition}</li>
+                      )}
+                    </ul>
+                  ) : (
+                    <p>- None recorded</p>
+                  )}
+                </div>
+              </div>
+
+              <div>
+                <Label className="text-base">Do you have or have you ever had PCOS/PCOD?</Label>
+                <RadioGroup
+                  value={formData.pcosPcod}
+                  onValueChange={(value) => setFormData({ ...formData, pcosPcod: value })}
+                  className="mt-2"
+                >
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="Yes" id="pcos-pcod-yes" />
+                    <Label htmlFor="pcos-pcod-yes">Yes</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="No" id="pcos-pcod-no" />
+                    <Label htmlFor="pcos-pcod-no">No</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="Not sure" id="pcos-pcod-not-sure" />
+                    <Label htmlFor="pcos-pcod-not-sure">Not sure</Label>
+                  </div>
+                </RadioGroup>
+              </div>
+
+              {formData.pcosPcod === "Yes" && (
+                <div className="space-y-2">
+                  <Label htmlFor="pcos-pcod-details">
+                    Please provide details about your PCOS/PCOD (e.g., diagnosis, treatment, current status):
+                  </Label>
+                  <Textarea
+                    id="pcos-pcod-details"
+                    value={formData.pcosPcodDetails}
+                    onChange={(e) => setFormData({ ...formData, pcosPcodDetails: e.target.value })}
+                  />
+                </div>
+              )}
+
+              <div className="space-y-2">
+                <Label htmlFor="allergies">Do you have any allergies? If yes, please list them.</Label>
+                <Textarea
+                  id="allergies"
+                  value={formData.allergies}
+                  onChange={(e) => setFormData({ ...formData, allergies: e.target.value })}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="current-medications">List any current medications or supplements you are taking:</Label>
+                <Textarea
+                  id="current-medications"
+                  value={formData.currentMedications}
+                  onChange={(e) => setFormData({ ...formData, currentMedications: e.target.value })}
+                />
               </div>
             </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="allergies">Do you have any allergies? If yes, please list them.</Label>
-              <Textarea
-                id="allergies"
-                value={formData.allergies}
-                onChange={(e) => setFormData({ ...formData, allergies: e.target.value })}
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <Label htmlFor="current-medications">List any current medications or supplements you are taking:</Label>
-              <Textarea
-                id="current-medications"
-                value={formData.currentMedications}
-                onChange={(e) => setFormData({ ...formData, currentMedications: e.target.value })}
-              />
-            </div>
           </QuestionSection>
-          
+
           {/* Family Medical History */}
           <QuestionSection title="3. Family Medical History">
             <div className="space-y-4">
@@ -258,7 +339,7 @@ const QuestionnaireForm: React.FC = () => {
                   </div>
                 </RadioGroup>
               </div>
-              
+
               {formData.geneticDisorders === "Yes" && (
                 <div className="space-y-2">
                   <Label htmlFor="genetic-disorders-details">
@@ -271,7 +352,7 @@ const QuestionnaireForm: React.FC = () => {
                   />
                 </div>
               )}
-              
+
               <div>
                 <Label className="text-base">Is there a history of pregnancy complications in your close relatives?</Label>
                 <RadioGroup
@@ -293,7 +374,7 @@ const QuestionnaireForm: React.FC = () => {
                   </div>
                 </RadioGroup>
               </div>
-              
+
               {formData.familyPregnancyComplications === "Yes" && (
                 <div className="space-y-2">
                   <Label htmlFor="family-pregnancy-complications-details">
@@ -308,7 +389,7 @@ const QuestionnaireForm: React.FC = () => {
               )}
             </div>
           </QuestionSection>
-          
+
           {/* Lifestyle and Habits */}
           <QuestionSection title="4. Lifestyle and Habits">
             <div className="space-y-4">
@@ -337,7 +418,7 @@ const QuestionnaireForm: React.FC = () => {
                   </div>
                 </RadioGroup>
               </div>
-              
+
               <div>
                 <Label className="text-base">Alcohol consumption during pregnancy:</Label>
                 <RadioGroup
@@ -367,23 +448,25 @@ const QuestionnaireForm: React.FC = () => {
                   </div>
                 </RadioGroup>
               </div>
-              
+
               <div className="space-y-2">
                 <Label className="text-base">Current medication or drug use (select all that apply):</Label>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mt-2">
-                  {["None", "Prescription medications", "Over-the-counter medications", "Herbal supplements", "Recreational drugs"].map((option) => (
-                    <div key={option} className="flex items-center space-x-2">
-                      <Checkbox
-                        id={`drug-use-${option}`}
-                        checked={(formData.drugUse as string[]).includes(option)}
-                        onCheckedChange={() => handleCheckboxGroupChange("drugUse", option)}
-                      />
-                      <Label htmlFor={`drug-use-${option}`}>{option}</Label>
-                    </div>
-                  ))}
+                  {["None", "Prescription medications", "Over-the-counter medications", "Herbal supplements", "Recreational drugs"].map(
+                    (option) => (
+                      <div key={option} className="flex items-center space-x-2">
+                        <Checkbox
+                          id={`drug-use-${option}`}
+                          checked={(formData.drugUse as string[]).includes(option)}
+                          onCheckedChange={() => handleCheckboxGroupChange("drugUse", option)}
+                        />
+                        <Label htmlFor={`drug-use-${option}`}>{option}</Label>
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
-              
+
               <div className="space-y-2">
                 <Label htmlFor="diet-habits">Describe your current diet habits:</Label>
                 <Textarea
@@ -392,7 +475,7 @@ const QuestionnaireForm: React.FC = () => {
                   onChange={(e) => setFormData({ ...formData, dietHabits: e.target.value })}
                 />
               </div>
-              
+
               <div>
                 <Label className="text-base">How often do you exercise?</Label>
                 <RadioGroup
@@ -424,7 +507,7 @@ const QuestionnaireForm: React.FC = () => {
               </div>
             </div>
           </QuestionSection>
-          
+
           {/* Physical Activity */}
           <QuestionSection title="8. Exercise and Physical Activity">
             <div className="space-y-4">
@@ -446,12 +529,7 @@ const QuestionnaireForm: React.FC = () => {
                     ))}
                   </div>
                   <div className="absolute right-2 top-2">
-                    <Button
-                      type="button"
-                      variant="ghost"
-                      size="sm"
-                      className="h-6 w-6 p-0 rounded-full"
-                    >
+                    <Button type="button" variant="ghost" size="sm" className="h-6 w-6 p-0 rounded-full">
                       <Check className="h-4 w-4" />
                     </Button>
                   </div>
@@ -488,7 +566,7 @@ const QuestionnaireForm: React.FC = () => {
               </div>
             </div>
           </QuestionSection>
-          
+
           {/* Additional Comments */}
           <QuestionSection title="Additional Comments">
             <div className="space-y-2">
@@ -503,12 +581,9 @@ const QuestionnaireForm: React.FC = () => {
               />
             </div>
           </QuestionSection>
-          
+
           <div className="flex justify-center my-8">
-            <Button
-              type="submit"
-              className="materna-button w-60"
-            >
+            <Button type="submit" className="materna-button w-60">
               Save Questionnaire
             </Button>
           </div>

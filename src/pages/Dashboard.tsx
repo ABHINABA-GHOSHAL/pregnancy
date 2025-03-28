@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useApp } from "@/contexts/AppContext";
@@ -106,6 +105,77 @@ const Dashboard: React.FC = () => {
       default:
         return null;
     }
+  };
+
+  // Function to generate patient summary data
+  const generatePatientSummary = () => {
+    const bmi = patientData.height && patientData.currentWeight
+      ? (patientData.currentWeight / Math.pow(patientData.height / 100, 2)).toFixed(1)
+      : null;
+
+    const healthSummary = {
+      bmi,
+      prePregnancyWeight: patientData.preWeight,
+      currentWeight: patientData.currentWeight,
+      height: patientData.height,
+    };
+
+    // Add all test results from medical reports
+    const allTestResults = medicalReports.flatMap(report => 
+      (report.analysisResults?.all_results || []).map(result => ({
+        test_name: result.test_name,
+        result_value: result.result_value,
+        result_unit: result.result_unit,
+        reference_range: result.reference_range,
+        risk_level: result.risk_level,
+        direction: result.direction,
+        reportDate: report.date,
+        reportId: report.id,
+      }))
+    );
+
+    const riskFactors = allRiskFactors.map(risk => ({
+      test_name: risk.test_name,
+      result_value: risk.result_value,
+      result_unit: risk.result_unit,
+      reference_range: risk.reference_range,
+      risk_level: risk.risk_level,
+      direction: risk.direction,
+    }));
+
+    const testAnalysis = {
+      normal: testResultCounts.normal,
+      borderline: testResultCounts.borderline,
+      high_risk: testResultCounts.high_risk,
+      unknown: testResultCounts.unknown,
+    };
+
+    const currentTrimester = getTrimester(new Date(patientData.lmp));
+
+    return {
+      patientId: patientData.id,
+      healthSummary,
+      allTestResults,
+      riskFactors,
+      testAnalysis,
+      currentTrimester,
+      generatedAt: new Date().toISOString(),
+    };
+  };
+
+  // Function to download the summary as a JSON file
+  const downloadSummaryJSON = () => {
+    const summary = generatePatientSummary();
+    const jsonString = JSON.stringify(summary, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `patient_${patientData.id}_summary.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   return (
@@ -302,6 +372,15 @@ const Dashboard: React.FC = () => {
             <div className="bg-white rounded-xl shadow-md p-6">
               <h3 className="text-lg font-medium mb-4">Recommendations and Next Steps</h3>
               
+              {testResultCounts.high_risk > 0 && (
+                <div className="bg-red-100 border-l-4 border-red-500 p-4 mb-6 rounded-md">
+                  <p className="text-red-700 font-medium">
+                    Alert: High-risk factors have been detected in your test reports. 
+                    It is strongly recommended to consult your doctor as soon as possible.
+                  </p>
+                </div>
+              )}
+              
               {trimester === 3 && (
                 <div>
                   <h4 className="text-md font-medium mb-3">3rd Trimester Essentials</h4>
@@ -388,6 +467,13 @@ const Dashboard: React.FC = () => {
             </div>
           </TabsContent>
         </Tabs>
+
+        {/* Button to download the JSON summary */}
+        <div className="mt-8">
+          <Button onClick={downloadSummaryJSON} className="w-full md:w-auto">
+            Download Summary JSON
+          </Button>
+        </div>
       </div>
     </Layout>
   );
