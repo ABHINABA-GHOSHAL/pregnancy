@@ -36,7 +36,7 @@ export interface ReportAnalysisSummary {
   all_results?: TestResult[];
 }
 
-interface PatientData {
+export interface PatientData {
   id?: string;
   firstName?: string;
   lastName?: string;
