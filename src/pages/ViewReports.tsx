@@ -47,7 +47,7 @@ const ViewReportsPage: React.FC = () => {
         test_name: result.test_name,
         result_value: result.result_value,
         result_unit: result.result_unit,
-        reference_range: result.referenceRange, // Ensure 'referenceRange' exists in the TestResult type
+        reference_range: result.referenceRange,
         risk_level: result.risk_level,
         direction: result.direction,
         date: medicalReports.find((r) =>
@@ -183,7 +183,7 @@ const DirectionIndicator: React.FC<{ direction: string }> = ({ direction }) => {
   }
 };
 
-// Report card component
+// Updated ReportCard component to open PDF in a new tab
 const ReportCard: React.FC<{ report: any }> = ({ report }) => {
   const analysis = report.analysisResults;
 
@@ -197,7 +197,11 @@ const ReportCard: React.FC<{ report: any }> = ({ report }) => {
               Category: <span className="capitalize">{report.category}</span>
             </CardDescription>
           </div>
-          <Button size="sm" variant="ghost">
+          <Button
+            size="sm"
+            variant="ghost"
+            onClick={() => window.open(report.fileUrl, "_blank")}
+          >
             <FileText className="h-4 w-4 mr-1" />
             View
           </Button>
@@ -232,7 +236,6 @@ const ReportCard: React.FC<{ report: any }> = ({ report }) => {
               )}
             </div>
 
-            {/* Show all test results */}
             {analysis.all_results && analysis.all_results.length > 0 && (
               <div className="mt-4">
                 <h4 className="text-sm font-medium mb-2">Test Results:</h4>

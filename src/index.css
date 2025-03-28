@@ -135,3 +135,17 @@
     transform: translateY(0);
   }
 }
+.glass-panel {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.materna-button {
+  background: linear-gradient(to right, #4f46e5, #7c3aed);
+  color: white;
+}
+
+.materna-button:hover {
+  background: linear-gradient(to right, #4338ca, #6d28d9);
+}

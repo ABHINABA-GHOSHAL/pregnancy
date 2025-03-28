@@ -1,23 +1,19 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useApp } from "@/contexts/AppContext";
 import FeatureCard from "@/components/FeatureCard";
 import { Button } from "@/components/ui/button";
 import { AlertTriangle, FileText, Stethoscope } from "lucide-react";
 
 const HomePage = () => {
-  const { isRegistered } = useApp();
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2
-      }
-    }
+        staggerChildren: 0.2,
+      },
+    },
   };
 
   const itemVariants = {
@@ -27,9 +23,9 @@ const HomePage = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut"
-      }
-    }
+        ease: "easeOut",
+      },
+    },
   };
 
   return (
@@ -68,9 +64,9 @@ const HomePage = () => {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="flex flex-col gap-2 min-[400px]:flex-row"
               >
-                <Link to={isRegistered ? "/dashboard" : "/register"}>
+                <Link to="/login">
                   <Button className="materna-button">
-                    {isRegistered ? "View Dashboard" : "Register"}
+                    Login
                   </Button>
                 </Link>
                 <Link to="/book-appointment">
@@ -188,7 +184,7 @@ const HomePage = () => {
                 Begin Your Prenatal Care Journey
               </h2>
               <p className="max-w-[700px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Registration takes less than a minute. Access personalized care guidance and track your pregnancy health.
+                Login to access personalized care guidance and track your pregnancy health.
               </p>
             </motion.div>
             <motion.div
@@ -198,9 +194,9 @@ const HomePage = () => {
               viewport={{ once: true }}
               className="flex flex-col gap-2 min-[400px]:flex-row"
             >
-              <Link to={isRegistered ? "/dashboard" : "/register"}>
+              <Link to="/login">
                 <Button className="materna-button">
-                  {isRegistered ? "View Dashboard" : "Register Now"}
+                  Login Now
                 </Button>
               </Link>
             </motion.div>
